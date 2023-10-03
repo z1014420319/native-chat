@@ -1,6 +1,6 @@
 import { redirect } from "next/navigation";
 
 export default function Home() {
-  redirect("/chat");
+  // redirect("/chat");
   return <div>chat</div>;
 }
