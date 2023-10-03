@@ -1,0 +1,35 @@
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Message {
+  id        String @id @default(cuid())
+  useremail String
+  role      String
+  content   String @db.Text
+
+  show      Boolean
+  createdAt DateTime @default(now())
+
+  groupId String
+  group   MessageGroup @relation(fields: [groupId], references: [groupId], onDelete: Cascade)
+
+  @@index([useremail])
+  @@index([groupId])
+}
+
+model MessageGroup {
+  groupId      String  @id @default(cuid())
+  useremail    String
+  groupName    String?
+  aiModelValue String
+
+  Message Message[]
+
+  @@index([useremail])
+}
