@@ -2,5 +2,5 @@
 
 export default function Home() {
   // redirect("/chat");
-  return null;
+  return <div>asdf</div>;
 }
