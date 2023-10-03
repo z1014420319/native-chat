@@ -2,5 +2,5 @@ import { redirect } from "next/navigation";
 
 export default function Home() {
   redirect("/chat");
-  return null;
+  return <div>chat</div>;
 }
