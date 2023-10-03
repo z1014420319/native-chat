@@ -33,9 +33,6 @@ export default function ChatSideBar(props: { messageGroups: MessageGroup[] }) {
 
   const [deviceSize, setDeviceSize] = useState("");
 
-  const [currentItem, setCurrentItem] = useState("");
-  const [globallyIsEditing, setGloballyIsEditing] = useState(false);
-
   const router = useRouter();
   const search = useSearchParams();
   const currentMessageGroupId = search.get("id");
@@ -278,10 +275,8 @@ export default function ChatSideBar(props: { messageGroups: MessageGroup[] }) {
                 groupItem={item}
                 deleteMutation={deleteMutation}
                 renameMutation={renameMutation}
-                currentItem={currentItem}
-                setCurrentItem={setCurrentItem}
-                globallyIsEditing={globallyIsEditing}
-                setGloballyIsEditing={setGloballyIsEditing}
+                currentItem={currentMessageGroupId || ""}
+                // setCurrentItem={setCurrentItem}
                 isAiLoading={isAiLoading}
               />
             );

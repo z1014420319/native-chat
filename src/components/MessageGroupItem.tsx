@@ -18,9 +18,6 @@ export function MessageGroupItem(props: {
     unknown
   >;
   currentItem: string;
-  setCurrentItem: (item: string) => void;
-  globallyIsEditing: boolean;
-  setGloballyIsEditing: (status: boolean) => void;
   isAiLoading: Boolean;
 }) {
   const [currentIsEditing, setCurrentIsEditing] = useState(false);
@@ -87,7 +84,6 @@ export function MessageGroupItem(props: {
     if (currentIsEditing && inputRef.current) {
       inputRef.current.focus();
     }
-    props.setGloballyIsEditing(currentIsEditing);
   }, [currentIsEditing]);
 
   return (
@@ -95,26 +91,12 @@ export function MessageGroupItem(props: {
       replace
       href={`/chat?id=${props.groupItem.groupId}`}
       className={cn(
-        "h-11 flex group relative items-center text-gray-300 cursor-pointer m-2 mb-0 rounded hover:bg-zinc-800",
+        "h-11 flex relative items-center text-gray-300 cursor-pointer m-2 mb-0 rounded hover:bg-zinc-800",
         {
           "cursor-wait": props.isAiLoading,
           "bg-zinc-800": isCurrent,
         }
       )}
-      onClickCapture={(e) => {
-        if (currentIsloding) {
-          e.stopPropagation();
-          e.preventDefault();
-          return;
-        }
-        if (props.globallyIsEditing) {
-          e.stopPropagation();
-          e.preventDefault();
-          document.dispatchEvent(new Event("click"));
-          return;
-        }
-        props.setCurrentItem(props.groupItem.groupId);
-      }}
     >
       {currentIsloding && (
         <div className="absolute w-full h-full bg-zinc-900 opacity-40 cursor-wait">
@@ -147,7 +129,7 @@ export function MessageGroupItem(props: {
 
       {!currentIsEditing && (
         <div
-          className={cn("ml-auto flex h-1/3 invisible group-hover:visible", {
+          className={cn("ml-auto flex h-1/3 invisible", {
             visible: isCurrent,
           })}
         >
