@@ -36,7 +36,7 @@ export default async function Chat(props: { searchParams: { id: string } }) {
     });
   }
   return (
-    <div className={"flex w-screen h-screen items-stretch"}>
+    <div className={"flex w-full h-full items-stretch"}>
       <ChatSideBar messageGroups={messageGroups} />
       <ChatModule messages={messages} key={messageGroupId} />
       <AuthDialog />
