@@ -90,7 +90,7 @@ export async function POST(req: Request) {
         useremail: newGroupObj!?.useremail,
         aiModelValue,
         Connection: "Keep-Alive",
-        "Keep-Alive": "timeout=5, max=1000",
+        "Keep-Alive": "timeout=120, max=2000",
       },
     });
   } catch (error) {
