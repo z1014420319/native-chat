@@ -19,10 +19,10 @@ export function ChatModelTabs(props: {
       value={props.aiModelValue}
       className="mt-6 "
       onValueChange={(value) => {
-        // if (!email && value === "GPT-4") {
-        //   setIsOpenDialog(true);
-        //   return;
-        // }
+        if (!email && value === "GPT-4") {
+          setIsOpenDialog(true);
+          return;
+        }
         props.setAiModelValue(value as AiModelValue);
       }}
     >

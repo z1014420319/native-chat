@@ -48,10 +48,7 @@ function LogInButton() {
     <div
       className="cursor-pointer hover:bg-zinc-800 h-11 px-3 flex items-center"
       onClick={() => {
-        alert(
-          "数据库已过期，登陆功能失效，无法记录会话历史，GPT-4可免登录使用。"
-        );
-        // setIsOpenDialog(true);
+        setIsOpenDialog(true);
       }}
     >
       <LogIn className="h-2/5" />
