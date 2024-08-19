@@ -130,9 +130,12 @@ export default function Chat(props: { messages: Message[] }) {
   if (isSuccess) {
     return (
       <main
-        className={cn("grow flex flex-col items-stretch relative", {
-          "cursor-wait": isAiLoading,
-        })}
+        className={cn(
+          "grow flex flex-col items-stretch relative overflow-hidden",
+          {
+            "cursor-wait": isAiLoading,
+          }
+        )}
       >
         {data.length === 0 && (
           <div className="absolute w-full flex flex-col items-center top-7 md:top-0">
