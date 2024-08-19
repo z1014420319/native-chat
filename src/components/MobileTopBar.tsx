@@ -33,9 +33,9 @@ export function MobileTopBar(props: { groupId: string | null }) {
             "cursor-wait": isAiLoading,
           })}
           onClick={(e) => {
-            if (!email) {
-              setIsOpenDialog(true);
-            }
+            // if (!email) {
+            //   setIsOpenDialog(true);
+            // }
             if (isAiLoading) {
               e.preventDefault();
               e.stopPropagation();

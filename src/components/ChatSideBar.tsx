@@ -184,9 +184,12 @@ export default function ChatSideBar(props: { messageGroups: MessageGroup[] }) {
               }
             )}
             onClick={() => {
-              if (!email) {
-                setIsOpenDialog(true);
-              }
+              // if (!email) {
+              //   setIsOpenDialog(true);
+              // }
+              alert(
+                "数据库已过期，登陆功能失效，无法记录会话历史，无法创建新的会话，请刷新开启的会话。"
+              );
             }}
           >
             <div className="h-1/3">
@@ -267,7 +270,7 @@ export default function ChatSideBar(props: { messageGroups: MessageGroup[] }) {
           {/* </showSideBarButton> */}
         </div>
 
-        <div className="grow overflow-scroll">
+        {/* <div className="grow overflow-scroll">
           {data.map((item: MessageGroup) => {
             return (
               <MessageGroupItem
@@ -276,12 +279,11 @@ export default function ChatSideBar(props: { messageGroups: MessageGroup[] }) {
                 deleteMutation={deleteMutation}
                 renameMutation={renameMutation}
                 currentItem={currentMessageGroupId || ""}
-                // setCurrentItem={setCurrentItem}
                 isAiLoading={isAiLoading}
               />
             );
           })}
-        </div>
+        </div> */}
 
         <Separator className="mt-auto bg-zinc-700" />
 
